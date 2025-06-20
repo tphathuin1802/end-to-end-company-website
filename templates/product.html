@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .product-container {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+      }
+      .product-container.above-threshold {
+        background-color: #f0f0f0;
+      }
+      .product-container.below-threshold {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    {% for product in products %}
+    <div class="product-container above-threshold">
+      <p>
+        <span class="product-name"
+          >{{ forloop.counter0 }}. {{ product.name }}</span
+        ><br />
+        <span class="product-price">${{ product.price|floatformat:2 }}</span>
+      </p>
+    </div>
+    {% endfor %}
+  </body>
+</html>
